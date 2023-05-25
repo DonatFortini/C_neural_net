@@ -138,45 +138,4 @@ int determinant(Matrix A)
     }
 }
 
-int main(int argc, char const *argv[])
-{
-    Matrix m = matrice(2, 2);
 
-    setElement(m, 0, 0, 1);
-    setElement(m, 0, 1, 3);
-    setElement(m, 1, 0, 2);
-    setElement(m, 1, 1, 4);
-    print(m);
-
-    Matrix m2 = matrice(2, 2);
-
-    setElement(m2, 0, 0, 2);
-    setElement(m2, 0, 1, 4);
-    setElement(m2, 1, 0, 6);
-    setElement(m2, 1, 1, 8);
-    print(m2);
-
-    m2 = multiply(m, m2);
-    print(m2);
-
-    m2 = matrice(3, 3);
-
-    setElement(m2, 0, 0, 2);
-    setElement(m2, 0, 1, 4);
-    setElement(m2, 0, 2, 3);
-    setElement(m2, 1, 0, 6);
-    setElement(m2, 1, 1, 8);
-    setElement(m2, 1, 2, 7);
-    setElement(m2, 2, 0, 6);
-    setElement(m2, 2, 1, 8);
-    setElement(m2, 2, 2, 9);
-    print(m2);
-
-    printf("%d\n ", determinant(m));
-    printf("%d\n ", determinant(m2));
-
-    print(m);
-    m=inverse(m);
-    print(m);
-    return 0;
-}
