@@ -1,32 +1,34 @@
 #include "datastruct.h"
 
-Neuron neuron(double*inputs,double*weights,double bias)
+Neuron neuron(double *inputs, double *weights, double bias, int length)
 {
     Neuron n;
-    n.inputs=inputs;
-    n.weights=weights;
-    n.bias=bias;
+    n.inputs = fillArray(inputs,length);
+    n.weights = fillArray(weights,length);
+    n.bias = bias;
+    n.length = length;
     return n;
+}
+
+double* fillArray(const double* sourceArray, size_t size)
+{
+    double* dynamicArray = malloc(size * sizeof(double));
+    for (size_t i = 0; i < size; i++) {
+        dynamicArray[i] = sourceArray[i];
+    }
+    return dynamicArray;
 }
 
 double output(Neuron n)
 {
-    double result=0.0;
-    int len=sizeof(n.inputs);
-    printf("%d\n",len);
-    for (int i = 0; i <len; i++)
+    double result = 0.0;
+    printf("%d \n", n.length);
+    for (int i = 0; i < n.length; i++)
     {
-        result+= n.inputs[i]*n.weights[i];
+        result += n.inputs[i] * n.weights[i];
     }
-    return result+n.bias;
-    
+    return result + n.bias;
 }
 
-int main(int argc, char const *argv[])
-{
-    double za[]={0.1,0.2,0.3};
-    double aa[]={0.3,0.1,0.15};
-    Neuron n=neuron(za,aa,0.84);
-    printf("%f",output(n));
-    return 0;
-}
+
+

@@ -5,6 +5,7 @@ typedef struct
     double *inputs;
     double *weights;
     double bias;
+    int length;
 } Neuron;
 
 typedef struct
@@ -29,5 +30,7 @@ typedef struct
     Matrix bs;
 } BiasVector;
 
-Neuron neuron(double*inputs,double*weights,double bias);
+Neuron neuron(double*inputs,double*weights,double bias,int length);
 double output(Neuron n);
+double* fillArray(const double* sourceArray, size_t size);
+
