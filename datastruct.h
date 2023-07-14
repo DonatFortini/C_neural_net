@@ -5,10 +5,12 @@ typedef struct
     double *inputs;
     double *weights;
     double bias;
+    int length;
 } Neuron;
 
 typedef struct
 {
+    int size;
     Neuron **neurons;
     // activation func
 } Layer;
@@ -16,7 +18,8 @@ typedef struct
 typedef struct
 {
     Layer **layers;
-    //layer refs
+
+    // layer refs
 } NeuralNetwork;
 
 typedef struct
@@ -29,5 +32,10 @@ typedef struct
     Matrix bs;
 } BiasVector;
 
-Neuron neuron(double*inputs,double*weights,double bias);
+Neuron neuron(double *inputs, double *weights, double bias, int length);
 double output(Neuron n);
+double *fillArray(const double *sourceArray, size_t size);
+
+Layer *layer(int size);
+void addNeuron(Layer *layer, Neuron *neuron, int index);
+void printLayer(Layer *layer);
