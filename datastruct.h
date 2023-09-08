@@ -18,7 +18,6 @@ typedef struct
 typedef struct
 {
     Layer **layers;
-
     // layer refs
 } NeuralNetwork;
 
@@ -39,3 +38,5 @@ double *fillArray(const double *sourceArray, size_t size);
 Layer *layer(int size);
 void addNeuron(Layer *layer, Neuron *neuron, int index);
 void printLayer(Layer *layer);
+
+NeuralNetwork *Network(int layerSize);
